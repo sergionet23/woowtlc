@@ -9,6 +9,7 @@ class HeroViewSet(viewsets.ModelViewSet):
     serializer_class = HeroSerializer
 
 
-class ConductorViewSet(viewsets.ModelViewSet):
-    queryset = Conductor.objects.all().order_by('idconductor')
-    serializer_class_con = ConductorSerializer
+
+#class ConductorViewSet(viewsets.ModeViewSet):
+#    queryset = Conductor.objects.all().order_by('idconductor')
+#    serializer_class = ConductorSerializer
