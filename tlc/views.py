@@ -4,7 +4,6 @@ from .serializers import ConductorSerializer, OperadorSerializer, LugaresDeTraba
 from .models import Conductor, Operador, LugaresDeTrabajo, Propinas, Denuncia, TipoDenuncia
 
 
-
 class ConductorViewSet(viewsets.ModelViewSet):
     queryset = Conductor.objects.all().order_by('idconductor')
     serializer_class = ConductorSerializer
