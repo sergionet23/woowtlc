@@ -15,15 +15,30 @@ class Hero(models.Model):
 
 
 class Conductor(models.Model):
-    idconductor = models.IntegerField
-    usr = models.CharField(max_length=20)
+    idconductor = models.AutoField(primary_key=True)
+    usuario = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
     nombre = models.CharField(max_length=20)
     apellido = models.CharField(max_length=30)
-    telefono = models.CharField(max_length=10)
-    mail = models.EmailField(max_length=40)
-    status = models.BooleanField
+    telefono = models.IntegerField()
+    mail = models.EmailField(max_length=50)
+    estado = models.BooleanField
 
+
+class Operador(models.Model):
+    ci_operador = models.IntegerField(primary_key=True)
+    nombre = models.CharField(max_length=20)
+    apellido = models.CharField(max_length=30)
+    direccion = models.CharField(max_length=50)
+    telefono = models.IntegerField()
+    mail = models.EmailField(max_length=50)
+    password = models.CharField(max_length=20)
+    estado = models.BooleanField
+    tipo_operador = models.CharField(max_length=20)
+    id_lugar_asignado = models.IntegerField()
+    hora_inicio_trabajo = models.IntegerField()
+    Hora_fin_trabajo = models.IntegerField()
+    calificacion_promedio = models.IntegerField()
 
 
 def __str__(self):

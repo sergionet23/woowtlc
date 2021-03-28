@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Hero , Conductor
+from .models import Hero, Conductor, Operador
 
 
 class HeroSerializer(serializers.ModelSerializer):
@@ -12,4 +12,10 @@ class HeroSerializer(serializers.ModelSerializer):
 class ConductorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Conductor
-        filter = '__all__'
+        fields = '__all__'
+
+
+class OperadorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Operador
+        fields = '__all__'
