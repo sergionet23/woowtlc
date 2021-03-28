@@ -9,11 +9,6 @@ class Item(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
-class Hero(models.Model):
-    name = models.CharField(max_length=60)
-    alias = models.CharField(max_length=60)
-
-
 class Conductor(models.Model):
     idconductor = models.AutoField(primary_key=True)
     usuario = models.CharField(max_length=20)
@@ -39,6 +34,34 @@ class Operador(models.Model):
     hora_inicio_trabajo = models.IntegerField()
     Hora_fin_trabajo = models.IntegerField()
     calificacion_promedio = models.IntegerField()
+
+
+class LugaresDeTrabajo(models.Model):
+    id_Lugar_asignado = models.AutoField(primary_key=True)
+    nombre_ubicacion = models.CharField(max_length=50)
+    cantidad_total_lugares = models.IntegerField(max_length=3)
+    ubicacion = models.CharField(max_length=50)
+    latidud = models.FloatField
+    longitud = models.FloatField
+    cantidad_restante_lugares = models.IntegerField(max_length=3)
+
+
+class Propinas(models.Model):
+    id_transaccion = models.AutoField(primary_key=True)
+    monto = models.IntegerField
+    fecha = models.DateTimeField
+
+
+class Denuncia(models.Model):
+    id_transaccion = models.AutoField(primary_key=True)
+    tipo_denuncia = models.IntegerField
+    texto_denuncia = models.CharField(max_length=50)
+    fecha = models.DateTimeField
+
+
+class TipoDenuncia(models.Model):
+    id_tipo_denuncia = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=30)
 
 
 def __str__(self):
