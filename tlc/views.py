@@ -1,7 +1,12 @@
 from rest_framework import viewsets
 from rest_framework import permissions
-from .serializers import ConductorSerializer, OperadorSerializer, LugaresDeTrabajoSerializer, PropinasSerializer, DenunciaSerializer, TipoDenunciaSerializer
-from .models import Conductor, Operador, LugaresDeTrabajo, Propinas, Denuncia, TipoDenuncia
+from .serializers import *
+
+# ConductorSerializer, OperadorSerializer, LugaresDeTrabajoSerializer, PropinasSerializer, DenunciaSerializer, TipoDenunciaSerializer
+
+from .models import *
+
+# Conductor, Operador, LugaresDeTrabajo, Propinas, Denuncia, TipoDenuncia
 
 
 class ConductorViewSet(viewsets.ModelViewSet):
@@ -37,4 +42,28 @@ class DenunciaViewSet(viewsets.ModelViewSet):
 class TipoDenunciaViewSet(viewsets.ModelViewSet):
     queryset = TipoDenuncia.objects.all().order_by('id_tipo_denuncia')
     serializer_class = TipoDenunciaSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class ComercioViewSet(viewsets.ModelViewSet):
+    queryset = Comercio.objects.all().order_by('id_comercio')
+    serializer_class = Comercio
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class ServiciosViewSet(viewsets.ModelViewSet):
+    queryset = Servicios.objects.all().order_by('id_servicio')
+    serializer_class = Servicios
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class OcuparLugaresViewSet(viewsets.ModelViewSet):
+    queryset = OcuparLugar.objects.all().order_by('id_transaccion')
+    serializer_class = OcuparLugar
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class CalificacionesViewSet(viewsets.ModelViewSet):
+    queryset = Calificaciones.objects.all().order_by('id_calificacion')
+    serializer_class = Calificaciones
     permission_classes = [permissions.IsAuthenticated]
