@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Conductor, Operador, LugaresDeTrabajo, Propinas, Denuncia, TipoDenuncia
+from .models import Conductor, Operador, LugaresDeTrabajo, Propinas, Denuncia, TipoDenuncia, Comercio, Servicios, OcuparLugar, Calificaciones
 
 
 class ConductorSerializer(serializers.ModelSerializer):
@@ -36,4 +36,28 @@ class DenunciaSerializer(serializers.ModelSerializer):
 class TipoDenunciaSerializer(serializers.ModelSerializer):
     class Meta:
         model = TipoDenuncia
+        fields = '__all__'
+
+
+class ComercioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comercio
+        fields = '__all__'
+
+
+class ServiciosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Servicios
+        fields = '__all__'
+
+
+class OcuparLugarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OcuparLugar
+        fields = '__all__'
+
+
+class CalificacionesLugarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Calificaciones
         fields = '__all__'

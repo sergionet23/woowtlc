@@ -64,5 +64,36 @@ class TipoDenuncia(models.Model):
     nombre = models.CharField(max_length=30)
 
 
+class Comercio(models.Model):
+    id_comercio = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=50)
+    texto = models.CharField(max_length=250)
+    imagen = models.ImageField
+    direccion = models.CharField(max_length=50)
+    latitud = models.FloatField
+    longitud = models.FloatField
+
+
+class Servicios(models.Model):
+    id_servicio = models.AutoField(primary_key=True)
+    id_comercio = models.ForeignKey(Comercio, on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=30)
+
+
+class OcuparLugar(models.Model):
+    id_transaccion = models.AutoField(primary_key=True)
+    id_conductor = models.ForeignKey(Conductor, on_delete=models.CASCADE)
+    ci_operado = models.ForeignKey(Operador, on_delete=models.CASCADE)
+    id_Lugar_asignado = models.ForeignKey(LugaresDeTrabajo, on_delete=models.CASCADE)
+    fecha_hora_inicio = models.DateTimeField
+    fecha_hora_fin = models.DateTimeField
+
+
+class Calificaciones(models.Model):
+    id_calificacion = models.AutoField(primary_key=True)
+    id_transaccion = models.ForeignKey(OcuparLugar, on_delete=models.CASCADE)
+    comentario = models.CharField(max_length=40)
+
+
 def __str__(self):
     return self.name
